@@ -29,16 +29,15 @@ Route::get('/getNom/{nom}', function($nom){
     return 'Hello World ' . $nom;
 });
 
+//PROVA CLASSE
 Route::get('/mostrar', function(){
     return view('mostra');
 });
 
-
+//EX 1----- SIGN IN, SIGN OUT
 Route::get('/sign/signin', function(){
     return view('/sign/signin');
 });
-
-
 
 Route::get('/sign/signup', function(){
     return view('/sign/signup');
