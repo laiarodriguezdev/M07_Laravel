@@ -33,11 +33,11 @@ Route::get('/mostrar', function(){
     return view('mostra');
 });
 
-/*
+
 Route::get('/sign/signin', function(){
     return view('/sign/signin');
 });
-*/
+
 
 
 Route::get('/sign/signup', function(){
@@ -45,8 +45,8 @@ Route::get('/sign/signup', function(){
 });
 
 
-//AMB CONTROLADORS
+//AMB CONTROLADORS --- SIGN IN 
 Route::get('/signin/{v1}/{v2}/{v3}/{v4}', [App\Http\Controllers\SignController::class, 'signIn']);
 
-//AMB CONTROLADORS
+//AMB CONTROLADORS --- SIGN UP 
 Route::get('/signup/{v1}/{v2}/{v3}', [App\Http\Controllers\SignController::class, 'signUp']);
