@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SignController;
 use App\Http\Controllers\LoginController;
+use GuzzleHttp\Psr7\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,19 +47,31 @@ Route::get('/sign/signup', function(){
 
 
 //AMB CONTROLADORS --- SIGN IN 
-Route::get('/signin/{v1}/{v2}/{v3}/{v4}', [App\Http\Controllers\SignController::class, 'signIn']);
+Route::get('/signin/{v1}/{v2}/{v3}/{v4}', [SignController::class, 'signIn']);
 
 //AMB CONTROLADORS --- SIGN UP 
-Route::get('/signup/{v1}/{v2}/{v3}', [App\Http\Controllers\SignController::class, 'signUp']);
+Route::get('/signup/{v1}/{v2}/{v3}', [SignController::class, 'signUp']);
 
 /*---------P02 - POSTMAN MÉS MIDDLEWARE---------*/
 
 //AMB CONTROLADORS --- LOGIN PROFE 
-Route::get('/loginprofessorat/{v1}', [App\Http\Controllers\LoginController::class, 'professor']);
+
+Route::get('/loginprofessorat/{v1}', [LoginController::class, 'professor']);
 
 //AMB CONTROLADORS --- LOGIN ALUMNE 
-Route::get('/loginalumne/{v1}', [App\Http\Controllers\LoginController::class, 'alumne']);
+Route::get('/loginalumne/{v1}', [LoginController::class, 'alumne']);
 
 //AMB CONTROLADORS --- LOGIN PROFE 
-Route::get('/logincentre/{v1}', [App\Http\Controllers\LoginController::class, 'centre']);
+Route::get('/logincentre/{v1}', [LoginController::class, 'centre']); 
+
+
+/*---------POSTMAN---------*/
+
+//AMB CONTROLADORS --- LOGIN PROFE 
+Route::post('/loginprofessor', [LoginController::class, 'professor']); 
+Route::post('/logincentre', [LoginController::class, 'centre']); 
+Route::post('/loginalumne', [LoginController::class, 'alumne']); 
+
+/*--------- P02 - GET ---------*/
+Route::get('/error', [LoginController::class, 'error']); 
 

@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Benvingut alumne, el teu email és: {{$variablevista}}</h1>
+    <h1>Benvingut alumne, el teu email és: {{$email}}</h1>
 </body>
 </html>

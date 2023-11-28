@@ -7,21 +7,30 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     //CONTROLADOR DE LA PRACTICA
-    public function professor($v1){
-        
-        $variablecontrolador = $v1;
-        return view('user.professor')->with('variablevista',$variablecontrolador);
+    public function professor(){
+        $email = Request('email');
+        $password = Request('password');
+        //P01: $variablecontrolador = $v1;
+        return view('user.professor')->with('email',$email);
     }
 
-    public function alumne($v1){
-        
-        $variablecontrolador = $v1;
-        return view('user.alumne')->with('variablevista',$variablecontrolador);
+    public function alumne(){
+        $email = Request('email');
+        $password = Request('password');
+        //P01: $variablecontrolador = $v1;
+        return view('user.alumne')->with('email',$email);
     }
 
-    public function centre($v1){
-        
-        $variablecontrolador = $v1;
-        return view('user.centre')->with('variablevista',$variablecontrolador);
+    public function centre(){
+        $email = Request('email');
+        $password = Request('password');
+        //P01: $variablecontrolador = $v1;
+        return view('user.centre')->with('email',$email);
+    }
+
+    public function error(){
+        $email = Request('email');
+        $password = Request('password');
+        return view('user.error');
     }
 }

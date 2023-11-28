@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Benvingut administrador, el teu email és: {{$email}}</h1>
+    <h1>Error d’accés</h1>
 </body>
 </html>
