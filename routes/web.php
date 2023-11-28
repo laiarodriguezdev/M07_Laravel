@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SignController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,13 @@ Route::get('/signin/{v1}/{v2}/{v3}/{v4}', [App\Http\Controllers\SignController::
 
 //AMB CONTROLADORS --- SIGN UP 
 Route::get('/signup/{v1}/{v2}/{v3}', [App\Http\Controllers\SignController::class, 'signUp']);
+
+//AMB CONTROLADORS --- LOGIN PROFE 
+Route::get('/loginprofessorat/{v1}', [App\Http\Controllers\LoginController::class, 'professor']);
+
+//AMB CONTROLADORS --- LOGIN ALUMNE 
+Route::get('/loginalumne/{v1}', [App\Http\Controllers\LoginController::class, 'alumne']);
+
+//AMB CONTROLADORS --- LOGIN PROFE 
+Route::get('/logincentre/{v1}', [App\Http\Controllers\LoginController::class, 'centre']);
+
