@@ -51,6 +51,8 @@ Route::get('/signin/{v1}/{v2}/{v3}/{v4}', [App\Http\Controllers\SignController::
 //AMB CONTROLADORS --- SIGN UP 
 Route::get('/signup/{v1}/{v2}/{v3}', [App\Http\Controllers\SignController::class, 'signUp']);
 
+/*---------P02 - POSTMAN MÉS MIDDLEWARE---------*/
+
 //AMB CONTROLADORS --- LOGIN PROFE 
 Route::get('/loginprofessorat/{v1}', [App\Http\Controllers\LoginController::class, 'professor']);
 
