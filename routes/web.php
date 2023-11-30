@@ -61,17 +61,20 @@ Route::get('/loginprofessorat/{v1}', [LoginController::class, 'professor']);
 //AMB CONTROLADORS --- LOGIN ALUMNE 
 Route::get('/loginalumne/{v1}', [LoginController::class, 'alumne']);
 
-//AMB CONTROLADORS --- LOGIN PROFE 
+//AMB CONTROLADORS --- LOGIN CENTRE 
 Route::get('/logincentre/{v1}', [LoginController::class, 'centre']); 
 
 
 /*---------POSTMAN---------*/
 
-//AMB CONTROLADORS --- LOGIN PROFE 
+//AMB CONTROLADORS --- LOGIN  
 Route::post('/loginprofessor', [LoginController::class, 'professor']); 
 Route::post('/logincentre', [LoginController::class, 'centre']); 
 Route::post('/loginalumne', [LoginController::class, 'alumne']); 
 
+//Route::post('/login', [LoginController::class, 'loginGeneral']); 
+Route::post('/login', [LoginController::class, 'loginGeneral'])->middleware('login'); 
+
 /*--------- P02 - GET ---------*/
-Route::get('/error', [LoginController::class, 'error']); 
+Route::get('/error', [LoginController::class, 'error'])->name('errorAcces'); 
 
