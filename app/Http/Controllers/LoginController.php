@@ -26,7 +26,29 @@ class LoginController extends Controller
         $email = Request('email');
         $password = Request('password');
         //P01: $variablecontrolador = $v1;
-        return view('user.centre')->with('email',$email);
+
+         $professors = [
+        [
+            'id' => 1,
+            'nom' => 'Josep Oriol',
+            'email' => 'joseporiol@itic.bcn',
+            'curs' => 2,
+        ],
+        [
+            'id' => 2,
+            'nom' => 'Juanma',
+            'email' => 'juanmasanchezbel@itic.bcn',
+            'curs' => 3,
+        ],
+        [
+            'id' => 3,
+            'nom' => 'Farito',
+            'email' => 'jjfarorodriguez@itic.bcn',
+            'curs' => 3,
+        ]
+        ];
+        
+        return view('user.centre')->with('email',$email)->with('professors', $professors);
     }
 
     /*---------ERROR------*/
