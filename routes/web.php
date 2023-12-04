@@ -45,12 +45,13 @@ Route::get('/sign/signup', function(){
     return view('/sign/signup');
 });
 
-
+/*
 //AMB CONTROLADORS --- SIGN IN 
 Route::get('/signin/{v1}/{v2}/{v3}/{v4}', [SignController::class, 'signIn']);
 
 //AMB CONTROLADORS --- SIGN UP 
 Route::get('/signup/{v1}/{v2}/{v3}', [SignController::class, 'signUp']);
+*/
 
 /*---------P02 - POSTMAN MÉS MIDDLEWARE---------*/
 
@@ -77,4 +78,8 @@ Route::post('/login', [LoginController::class, 'loginGeneral'])->middleware('log
 
 /*--------- P02 - GET ---------*/
 Route::get('/error', [LoginController::class, 'error'])->name('errorAcces'); 
+
+/*------------ P03 - SIGN IN I SIGN OUT -------*/
+Route::get('/signin', [SignController::class, 'signIn']);
+Route::get('/signup', [SignController::class, 'signUp']);
 
