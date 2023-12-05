@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp</title>
+    <title>Sign Up</title>
 </head>
 <body>
     <h1>Crear un usuari</h1>
-    <!--  action="gestio_p03.php" method="post"-->
-    <form>
+        <!--action= method="post"-->
+    <form action="/signin" method="post">
         <!--ID-->
         <label for="id"> Numero</label>
         <input type="number" name="id">
@@ -43,6 +43,6 @@
         <input type="submit" value="Enviar">   
     </form>
     <!--INICIAR SESSIÓ-->
-    <a href="/signin">Iniciar sessió</a>
+    <a href="{{ route('signin')}}">Iniciar sessió</a>
 </body>
 </html>

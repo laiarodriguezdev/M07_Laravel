@@ -79,7 +79,8 @@ Route::post('/login', [LoginController::class, 'loginGeneral'])->middleware('log
 /*--------- P02 - GET ---------*/
 Route::get('/error', [LoginController::class, 'error'])->name('errorAcces'); 
 
+
 /*------------ P03 - SIGN IN I SIGN OUT -------*/
-Route::get('/signin', [SignController::class, 'signIn']);
-Route::get('/signup', [SignController::class, 'signUp']);
+Route::get('/signin', [SignController::class, 'signIn'])->name('signin');
+Route::get('/signup', [SignController::class, 'signUp'])->name('signup');
 

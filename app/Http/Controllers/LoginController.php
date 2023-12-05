@@ -25,30 +25,9 @@ class LoginController extends Controller
     public function centre(){
         $email = Request('email');
         $password = Request('password');
-        //P01: $variablecontrolador = $v1;
-
-         $professors = [
-        [
-            'id' => 1,
-            'nom' => 'Josep Oriol',
-            'email' => 'joseporiol@itic.bcn',
-            'curs' => 2,
-        ],
-        [
-            'id' => 2,
-            'nom' => 'Juanma',
-            'email' => 'juanmasanchezbel@itic.bcn',
-            'curs' => 3,
-        ],
-        [
-            'id' => 3,
-            'nom' => 'Farito',
-            'email' => 'jjfarorodriguez@itic.bcn',
-            'curs' => 3,
-        ]
-        ];
+        //P01: $variablecontrolador = $v1
         
-        return view('user.centre')->with('email',$email)->with('professors', $professors);
+        return view('user.centre')->with('email',$email);
     }
 
     /*---------ERROR------*/
@@ -70,7 +49,27 @@ class LoginController extends Controller
             return view('user.alumne')->with('email',$email);
         }
         else if($email === '2023_secretaria@itic.bcn'){
-            return view('user.centre')->with('email',$email);
+            $professors = [
+                [
+                    'id' => 1,
+                    'nom' => 'Josep Oriol',
+                    'email' => 'joseporiol@itic.bcn',
+                    'curs' => 'DAW 2B',
+                ],
+                [
+                    'id' => 2,
+                    'nom' => 'Juanma',
+                    'email' => 'juanmasanbel@itic.bcn',
+                    'curs' => 'DAW 2A',
+                ],
+                [
+                    'id' => 3,
+                    'nom' => 'Faro',
+                    'email' => 'jjfaro@itic.bcn',
+                    'curs' => 'SMX 1B',
+                ]
+                ];
+            return view('user.centre')->with('email',$email)->with('professors', $professors);
         }
         else{
             return view('user.error');
