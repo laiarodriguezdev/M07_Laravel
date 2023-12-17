@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Usuari;
 
 class LoginController extends Controller
 {
+
     /*---------POST PERÒ SEPARAT------*/
     //CONTROLADOR DE LA PRACTICA
     public function professor(){
@@ -42,6 +44,7 @@ class LoginController extends Controller
     {
         $email = Request('email');
         $password = Request('password');
+        //$consulta = Usuari.where('email', $email);
         if($email === 'joseporiol@itic.bcn'){
             return view('user.professor')->with('email',$email);
         }
@@ -75,4 +78,6 @@ class LoginController extends Controller
             return view('user.error');
         }
     }
+
+
 }

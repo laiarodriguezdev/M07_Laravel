@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SignController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LoginControllerP04;
 use GuzzleHttp\Psr7\Request;
 
 /*
@@ -84,3 +85,12 @@ Route::get('/error', [LoginController::class, 'error'])->name('errorAcces');
 Route::get('/signin', [SignController::class, 'signIn'])->name('signin');
 Route::get('/signup', [SignController::class, 'signUp'])->name('signup');
 
+/*------------ P04 - MIGRACIONS, MODELS, ETC -------*/
+
+Route::group(['prefix' => 'p04'], function () {
+    Route::get('/login', [LoginControllerP04::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [LoginControllerP04::class, 'login']);
+    Route::get('/signup', [LoginControllerP04::class, 'showSignupForm'])->name('signup');
+    Route::post('/signup', [LoginControllerP04::class, 'signup']);
+    Route::post('/logout', [LoginControllerP04::class, 'logout'])->name('logout');
+});
