@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LoginControllerP04;
+use App\Http\Controllers\TeacherController;
 use GuzzleHttp\Psr7\Request;
 
 /*
@@ -97,3 +98,9 @@ Route::group(['prefix' => 'p04'], function () {
 
 
 /*------------ P05 - CRUD -------*/
+
+Route::controller(TeacherController::class)->group(function(){
+    Route::get('/prof', 'index') ->name('prof.index');
+    Route::get('/prof/edit/{id}', 'edit') ->name('prof.edit');
+    Route::get('/prof/create', 'create') ->name('prof.create');
+});
