@@ -94,3 +94,6 @@ Route::group(['prefix' => 'p04'], function () {
     Route::post('/signup', [LoginControllerP04::class, 'signup']);
     Route::post('/logout', [LoginControllerP04::class, 'logout'])->name('logout');
 });
+
+
+/*------------ P05 - CRUD -------*/

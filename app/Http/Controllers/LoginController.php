@@ -42,9 +42,17 @@ class LoginController extends Controller
     /*---------LLOGICA DE NEGOCI------*/
     public function loginGeneral()
     {
-        $email = Request('email');
-        $password = Request('password');
-        //$consulta = Usuari.where('email', $email);
+        $email=Request('email');
+        $password=Request('password');
+
+        $consulta = Usuari::all();
+
+        return  $consulta;     
+
+        /* 
+        
+        //--------------P02 + P03 + P04-----------------
+
         if($email === 'joseporiol@itic.bcn'){
             return view('user.professor')->with('email',$email);
         }
@@ -77,6 +85,7 @@ class LoginController extends Controller
         else{
             return view('user.error');
         }
+        */
     }
 
 
