@@ -89,13 +89,12 @@ Route::get('/signup', [SignController::class, 'signUp'])->name('signup');
 /*------------ P04 - MIGRACIONS, MODELS, ETC -------*/
 
 Route::group(['prefix' => 'p04'], function () {
-    Route::get('/login', [LoginControllerP04::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [LoginControllerP04::class, 'login']);
-    Route::get('/signup', [LoginControllerP04::class, 'showSignupForm'])->name('signup');
-    Route::post('/signup', [LoginControllerP04::class, 'signup']);
-    Route::post('/logout', [LoginControllerP04::class, 'logout'])->name('logout');
-});
 
+    Route::post('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/signup', [LoginController::class, 'signup'])->name('signup');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+});
 
 /*------------ P05 - CRUD -------*/
 

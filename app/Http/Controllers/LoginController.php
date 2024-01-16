@@ -45,48 +45,44 @@ class LoginController extends Controller
         $email=Request('email');
         $password=Request('password');
 
-        $consulta = Usuari::all();
+        $consulta = Usuari::where('email', $email)->where('password', $password)->first();
 
-        return  $consulta;     
-
-        /* 
-        
         //--------------P02 + P03 + P04-----------------
-
-        if($email === 'joseporiol@itic.bcn'){
+        
+        if($consulta->rol == "Professor"){
             return view('user.professor')->with('email',$email);
         }
-        else if($email === '2023_alumne@itic.bcn'){
+        else if($consulta->rol == "Alumne"){
             return view('user.alumne')->with('email',$email);
         }
-        else if($email === '2023_secretaria@itic.bcn'){
-            $professors = [
+        else if($consulta->rol == "Centre"){
+             $professors = [
                 [
-                    'id' => 1,
-                    'nom' => 'Josep Oriol',
-                    'email' => 'joseporiol@itic.bcn',
-                    'curs' => 'DAW 2B',
-                ],
-                [
+                     'id' => 1,
+                     'nom' => 'Josep Oriol',
+                     'email' => 'joseporiol@itic.bcn',
+                     'curs' => 'DAW 2B',
+                 ],
+                 [
                     'id' => 2,
-                    'nom' => 'Juanma',
-                    'email' => 'juanmasanbel@itic.bcn',
-                    'curs' => 'DAW 2A',
-                ],
-                [
-                    'id' => 3,
-                    'nom' => 'Faro',
-                    'email' => 'jjfaro@itic.bcn',
-                    'curs' => 'SMX 1B',
-                ]
-                ];
-            return view('user.centre')->with('email',$email)->with('professors', $professors);
-        }
+                     'nom' => 'Juanma',
+                     'email' => 'juanmasanbel@itic.bcn',
+                     'curs' => 'DAW 2A',
+                 ],
+                 [
+                     'id' => 3,
+                     'nom' => 'Faro',
+                     'email' => 'jjfaro@itic.bcn',
+                     'curs' => 'SMX 1B',
+                 ]
+                 ];
+             return view('user.centre')->with('email',$email)->with('professors', $professors);
+       
+            }
         else{
             return view('user.error');
         }
-        */
+
+        //return $consulta;    
     }
-
-
 }
