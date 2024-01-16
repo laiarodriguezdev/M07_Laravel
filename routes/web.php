@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SignController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\LoginControllerP04;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\AlumneController;
+use App\Http\Controllers\CentreController;
+
 use GuzzleHttp\Psr7\Request;
 
 /*
@@ -87,14 +89,18 @@ Route::get('/signin', [SignController::class, 'signIn'])->name('signin');
 Route::get('/signup', [SignController::class, 'signUp'])->name('signup');
 
 /*------------ P04 - MIGRACIONS, MODELS, ETC -------*/
-
+/*
 Route::group(['prefix' => 'p04'], function () {
 
     Route::post('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/signup', [LoginController::class, 'signup'])->name('signup');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+    Route::get('/professor', [LoginController::class, 'loginGeneral'])->name('professor');
+    Route::get('/alumne', [LoginController::class, 'loginGeneral'])->name('alumne');
+    Route::get('/centre', [LoginController::class, 'loginGeneral'])->name('centre');
 });
+*/
 
 /*------------ P05 - CRUD -------*/
 
