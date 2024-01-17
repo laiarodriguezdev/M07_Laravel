@@ -45,7 +45,14 @@ class LoginController extends Controller
         $email=Request('email');
         $password=Request('password');
 
+        $rolAlumne="Alumne";
+        $rolProfe="Professor";
+
         $consulta = Usuari::where('email', $email)->where('password', $password)->first();
+
+        //PER AGAFAR SEGONS EL ROL QUE TINGUIN
+        $consultaAlumne = Usuari::where('rol', $rolAlumne)->get();
+        $consultaProfe = Usuari::where('rol', $rolProfe)->get();
 
         //--------------P02 + P03 + P04-----------------
         
@@ -56,6 +63,9 @@ class LoginController extends Controller
             return view('user.alumne')->with('email',$email);
         }
         else if($consulta->rol == "Centre"){
+
+            //---------AIXO S'HA DE TORNAR A FER PERQUE ARA VOLEM MIRAR-HO A BBDD-----//
+                                        //---------P03-----//
              $professors = [
                 [
                      'id' => 1,

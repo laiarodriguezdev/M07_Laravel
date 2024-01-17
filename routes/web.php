@@ -108,4 +108,10 @@ Route::controller(TeacherController::class)->group(function(){
     Route::get('/prof', 'index') ->name('prof.index');
     Route::get('/prof/edit/{id}', 'edit') ->name('prof.edit');
     Route::get('/prof/create', 'create') ->name('prof.create');
+
+    Route::post('/prof', 'store') ->name('prof.store');
+
+    Route::put('/prof/{id}', 'update') ->name('prof.update');
+    
+    Route::delete('/prof/{id}', 'destroy') -> name('prof.destroy');
 });
