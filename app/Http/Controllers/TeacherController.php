@@ -12,7 +12,7 @@ class TeacherController extends Controller
         $rolProfe="Professor";
         $consultaProfe = Usuari::where('rol', $rolProfe)->get();
 
-        return View("professor.index")-> with('llistaProf', $consultaProfe);
+        return View("professor.index")-> with('email', $rolProfe);
     }
 
     function create(){
@@ -33,7 +33,7 @@ class TeacherController extends Controller
         $rolProfe="Professor";
         $consultaProfe = Usuari::where('rol', $rolProfe)->get();
 
-        return View("professor.index")-> with('llistaProf', $consultaProfe);
+        return view("professor.index")-> with('llistaProf', $consultaProfe);
         
     }
 }

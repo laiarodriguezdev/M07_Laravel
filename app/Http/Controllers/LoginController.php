@@ -61,6 +61,7 @@ class LoginController extends Controller
         }
         else if($consulta->rol == "Alumne"){
             return view('user.alumne')->with('email',$email);
+            
         }
         else if($consulta->rol == "Centre"){
 

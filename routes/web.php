@@ -104,14 +104,14 @@ Route::group(['prefix' => 'p04'], function () {
 
 /*------------ P05 - CRUD -------*/
 
-Route::controller(TeacherController::class)->group(function(){
-    Route::get('/prof', 'index') ->name('prof.index');
-    Route::get('/prof/edit/{id}', 'edit') ->name('prof.edit');
-    Route::get('/prof/create', 'create') ->name('prof.create');
-
+Route::controller(CentreController::class)->group(function(){
+    Route::get('/admin', 'index') ->name('admin.index');
+    Route::get('/admin/edit/{id}', 'edit') ->name('admin.edit');
+    Route::get('/admin/create', 'create') ->name('admin.create');
+    /*
     Route::post('/prof', 'store') ->name('prof.store');
 
     Route::put('/prof/{id}', 'update') ->name('prof.update');
     
-    Route::delete('/prof/{id}', 'destroy') -> name('prof.destroy');
+    Route::delete('/prof/{id}', 'destroy') -> name('prof.destroy');*/
 });
