@@ -50,7 +50,7 @@ class LoginController extends Controller
         //--------------P02 + P03 + P04-----------------
         
         if($consulta->rol == "Professor"){
-            return view('profe.index')->with('email',$email);
+            return view('professor.index')->with('email',$email);
         }
         else if($consulta->rol == "Alumne"){
             return view('user.alumne')->with('email',$email);
