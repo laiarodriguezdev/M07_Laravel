@@ -6,6 +6,6 @@
     <title>CREAR UN NOU PROFESSOR</title>
 </head>
 <body>
-    
+    <h1>CREAR UN NOU PROFESSOR</h1>
 </body>
 </html>

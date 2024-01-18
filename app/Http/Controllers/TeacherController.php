@@ -9,10 +9,10 @@ class TeacherController extends Controller
 {
     function index(){
 
-        $rolProfe="Professor";
-        $consultaProfe = Usuari::where('rol', $rolProfe)->get();
+        $rolAlumne="Alumne";
+        $consultaAlumne = Usuari::where('rol', $rolAlumne)->get();
 
-        return View("professor.index")-> with('email', $rolProfe);
+        return View("professor.index");
     }
 
     function create(){
@@ -30,10 +30,10 @@ class TeacherController extends Controller
 
         $usuari -> save();
 
-        $rolProfe="Professor";
-        $consultaProfe = Usuari::where('rol', $rolProfe)->get();
+        $rolAlumne="Alumne";
+        $consultaAlumne = Usuari::where('rol', $rolAlumne)->get();
 
-        return view("professor.index")-> with('llistaProf', $consultaProfe);
+        return view("professor.index")-> with('llistaProf', $consultaAlumne);
         
     }
 }

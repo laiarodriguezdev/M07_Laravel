@@ -45,19 +45,12 @@ class LoginController extends Controller
         $email=Request('email');
         $password=Request('password');
 
-        $rolAlumne="Alumne";
-        $rolProfe="Professor";
-
         $consulta = Usuari::where('email', $email)->where('password', $password)->first();
-
-        //PER AGAFAR SEGONS EL ROL QUE TINGUIN
-        $consultaAlumne = Usuari::where('rol', $rolAlumne)->get();
-        $consultaProfe = Usuari::where('rol', $rolProfe)->get();
 
         //--------------P02 + P03 + P04-----------------
         
         if($consulta->rol == "Professor"){
-            return view('user.professor')->with('email',$email);
+            return view('profe.index')->with('email',$email);
         }
         else if($consulta->rol == "Alumne"){
             return view('user.alumne')->with('email',$email);
@@ -67,7 +60,7 @@ class LoginController extends Controller
 
             //---------AIXO S'HA DE TORNAR A FER PERQUE ARA VOLEM MIRAR-HO A BBDD-----//
                                         //---------P03-----//
-             $professors = [
+            /* $professors = [
                 [
                      'id' => 1,
                      'nom' => 'Josep Oriol',
@@ -87,7 +80,8 @@ class LoginController extends Controller
                      'curs' => 'SMX 1B',
                  ]
                  ];
-             return view('user.centre')->with('email',$email)->with('professors', $professors);
+                 */
+             return view('admin.index')->with('email',$email);
        
             }
         else{

@@ -20,8 +20,8 @@
     <!--
             BUTTONS 
     -->
-    <a href="{{ route('create')}}">Iniciar sessió</a>
+    <a href="/admin/create">Crear un nou professor</a>
 
-    <a href="{{ route('login')}}">Log out</a>
+    <a href="/signin">Log out</a>
 </body>
 </html>

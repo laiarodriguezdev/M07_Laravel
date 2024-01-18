@@ -16,12 +16,17 @@ class CentreController extends Controller
     }
 
     function create(){
-        return View("professor.create");
+        return View("admin.create");
     }
 
     function edit($id){
+        //DIFERNCIA ENTRE EDIT I UPDATE:
+
+        //----------- A EDIT POTS VEURE QUINS VALORS TENIA L'USUARI A LA BBDD,
+        //----------- A UPDATE, NO RECULLS LES DADES I LES SOBREESCRIUS DIRECTAMENT, A CEGUES. 
+
         $consultaID = Usuari::find($id);
-        return View("professor.edit")-> with('prof', $consultaID);
+        return View("admin.edit")-> with('prof', $consultaID);
     }
 
     function store(Request $request){
@@ -33,7 +38,7 @@ class CentreController extends Controller
         $rolProfe="Professor";
         $consultaProfe = Usuari::where('rol', $rolProfe)->get();
 
-        return view("professor.index")-> with('llistaProf', $consultaProfe);
+        return view("admin.index")-> with('llistaProf', $consultaProfe);
         
     }
 }

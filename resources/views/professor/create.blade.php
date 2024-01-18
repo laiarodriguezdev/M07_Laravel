@@ -6,6 +6,6 @@
     <title>CREAR UN NOU ALUMNE</title>
 </head>
 <body>
-    
+    <h1>CREAR UN NOU ALUMNE</h1>
 </body>
 </html>
