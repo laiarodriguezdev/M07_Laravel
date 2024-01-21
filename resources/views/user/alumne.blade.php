@@ -8,6 +8,9 @@
 <body>
     <h1>Benvingut alumne, el teu email és: {{$email}}</h1>
 
+    <label for="document">Introdueix un document</label><br>
+    <input type="file" name="document">
+    <br><br>
     <a href="{{ route('signin')}}">Log out</a>
 </body>
 </html>
