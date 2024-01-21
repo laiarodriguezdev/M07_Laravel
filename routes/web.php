@@ -87,6 +87,7 @@ Route::get('/error', [LoginController::class, 'error'])->name('errorAcces');
 /*------------ P03 - SIGN IN I SIGN OUT -------*/
 Route::get('/signin', [SignController::class, 'signIn'])->name('signin');
 Route::get('/signup', [SignController::class, 'signUp'])->name('signup');
+Route::post('/signup', [SignController::class, 'createUser'])->name('signup');
 
 /*------------ P04 - MIGRACIONS, MODELS, ETC -------*/
 /*
@@ -108,6 +109,8 @@ Route::controller(CentreController::class)->group(function(){
     Route::get('/admin', 'index') ->name('admin.index');
     Route::get('/admin/edit/{id}', 'edit') ->name('admin.edit');
     Route::get('/admin/create', 'create') ->name('admin.create');
+
+    Route::post('/admin/create', 'createProf') ->name('admin.create');
     /*
     Route::post('/prof', 'store') ->name('prof.store');
 
@@ -120,4 +123,5 @@ Route::controller(TeacherController::class)->group(function(){
     Route::get('/prof', 'index') ->name('prof.index');
     Route::get('/prof/edit/{id}', 'edit') ->name('prof.edit');
     Route::get('/prof/create', 'create') ->name('prof.create');
+
 });

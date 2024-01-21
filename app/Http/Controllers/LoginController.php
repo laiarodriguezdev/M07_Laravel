@@ -54,40 +54,12 @@ class LoginController extends Controller
         }
         else if($consulta->rol == "Alumne"){
             return view('user.alumne')->with('email',$email);
-            
         }
         else if($consulta->rol == "Centre"){
-
-            //---------AIXO S'HA DE TORNAR A FER PERQUE ARA VOLEM MIRAR-HO A BBDD-----//
-                                        //---------P03-----//
-            /* $professors = [
-                [
-                     'id' => 1,
-                     'nom' => 'Josep Oriol',
-                     'email' => 'joseporiol@itic.bcn',
-                     'curs' => 'DAW 2B',
-                 ],
-                 [
-                    'id' => 2,
-                     'nom' => 'Juanma',
-                     'email' => 'juanmasanbel@itic.bcn',
-                     'curs' => 'DAW 2A',
-                 ],
-                 [
-                     'id' => 3,
-                     'nom' => 'Faro',
-                     'email' => 'jjfaro@itic.bcn',
-                     'curs' => 'SMX 1B',
-                 ]
-                 ];
-                 */
-             return view('admin.index')->with('email',$email);
-       
-            }
+            return view('admin.index')->with('email',$email);
+        }
         else{
             return view('user.error');
         }
-
-        //return $consulta;    
     }
 }

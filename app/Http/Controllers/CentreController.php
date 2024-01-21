@@ -19,6 +19,22 @@ class CentreController extends Controller
         return View("admin.create");
     }
 
+    function createProf(Request $request){
+
+        $user = new Usuari;
+        $user->id = $request->input('id');
+        $user->nom = $request->input('nom');
+        $user->cognoms = $request->input('cognoms');
+        $user->password = $request->input('password'); 
+        $user->email = $request->input('email');
+        $user->rol = $request->input('rol');
+        $user->actiu = $request->has('actiu');
+
+        $user->save();
+
+        return redirect()->route('admin.create');
+    }
+
     function edit($id){
         //DIFERNCIA ENTRE EDIT I UPDATE:
 

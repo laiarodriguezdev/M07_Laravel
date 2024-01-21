@@ -7,8 +7,7 @@
 </head>
 <body>
     <h1>Crear un usuari</h1>
-        <!--action= method="post"-->
-    <form action="/signin" method="post">
+    <form action="{{ url('/signup') }}" method="post">
         <!--ID-->
         <label for="id"> Numero</label>
         <input type="number" name="id">
@@ -18,8 +17,8 @@
         <input type="text" name="nom">
         <br>
         <!--COGNOM-->
-        <label for="cognom"> Cognoms </label>
-        <input type="text" name="cognom">
+        <label for="cognoms"> Cognoms </label>
+        <input type="text" name="cognoms">
         <br>
         <!--PASSWORD-->
         <label for="password"> Contrassenya </label>
