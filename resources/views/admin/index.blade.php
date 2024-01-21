@@ -10,18 +10,9 @@
 
     <h2>Benvingut administrador</h2>
 
-    <!--
-            TAULA QUE CONTROLA LA PROPIA VISTA. 
-    -->
-
-
-
     
-    <!--
-            BUTTONS 
-    -->
-    <a href="{{ route('admin.create')}}">Crear un nou professor</a>
-
+    <!--BUTTONS -->
+    <button><a href="{{ route('admin.create')}}">Crear un nou professor</a></button><br>
     <a href="{{ route('signin')}}">Log out</a>
 </body>
 </html>

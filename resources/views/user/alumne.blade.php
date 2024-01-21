@@ -7,5 +7,7 @@
 </head>
 <body>
     <h1>Benvingut alumne, el teu email és: {{$email}}</h1>
+
+    <a href="{{ route('signin')}}">Log out</a>
 </body>
 </html>

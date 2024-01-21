@@ -7,5 +7,7 @@
 </head>
 <body>
     <h1>Error d’accés</h1>
+
+    <a href="{{ route('signin')}}">Log out</a>
 </body>
 </html>

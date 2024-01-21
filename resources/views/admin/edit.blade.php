@@ -11,5 +11,17 @@
         TAMBÉ NECESSITES UN ALTRE GET PER RECOLLIR LES DADES DE BBDD. 
         I LLAVORS, EN EL BOTÓ DE GUARDAR, ES EL UPDATE -PUT- 
     -->
+
+    <h1>Editar Profesor</h1>
+
+    <form action="{{ route('admin.update', $professor->id) }}" method="post">
+        @csrf
+        @method('put')
+
+        <!-- Campos del formulario -->
+        <!-- Puedes cargar los valores actuales del profesor en los campos del formulario -->
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
 </body>
 </html>

@@ -8,10 +8,7 @@ use App\Models\Usuari;
 class CentreController extends Controller
 {
     function index(){
-
-        $rolProfe="Professor";
-        $consultaProfe = Usuari::where('rol', $rolProfe)->get();
-
+        $professors = Usuari::where('rol', 'Professor')->get();
         return View("admin.index");
     }
 
@@ -32,7 +29,7 @@ class CentreController extends Controller
 
         $user->save();
 
-        return redirect()->route('admin.create');
+        return redirect()->route('admin.index');
     }
 
     function edit($id){
@@ -41,8 +38,10 @@ class CentreController extends Controller
         //----------- A EDIT POTS VEURE QUINS VALORS TENIA L'USUARI A LA BBDD,
         //----------- A UPDATE, NO RECULLS LES DADES I LES SOBREESCRIUS DIRECTAMENT, A CEGUES. 
 
+        /*
         $consultaID = Usuari::find($id);
         return View("admin.edit")-> with('prof', $consultaID);
+        */
     }
 
     function store(Request $request){

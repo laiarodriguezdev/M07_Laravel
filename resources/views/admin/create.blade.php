@@ -42,6 +42,7 @@
         <input type="submit" value="Enviar">   
     </form>
     <!--INICIAR SESSIÓ-->
+    <br>
     <a href="{{ route('admin.index')}}">Torna a home</a>
 </body>
 </html>

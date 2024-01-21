@@ -17,11 +17,8 @@
 
 
     
-    <!--
-            BUTTONS 
-    -->
-    <a href="{{ route('prof.create')}}">Crear un nou alumne</a>
-
+    <!--BUTTONS -->
+    <button><a href="{{ route('prof.create')}}">Crear un nou alumne</a></button><br>
     <a href="{{ route('signin')}}">Log out</a>
 </body>
 </html>
