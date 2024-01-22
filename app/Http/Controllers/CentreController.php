@@ -8,8 +8,8 @@ use App\Models\Usuari;
 class CentreController extends Controller
 {
     function index(){
-        $professors = Usuari::where('rol', 'Professor')->get();
-        return View("admin.index");
+        $consultaProfe = Usuari::where('rol', 'Professor')->get();
+        return View("admin.index")->with('consultaProfe', $consultaProfe);
     }
 
     function create(){
@@ -38,10 +38,10 @@ class CentreController extends Controller
         //----------- A EDIT POTS VEURE QUINS VALORS TENIA L'USUARI A LA BBDD,
         //----------- A UPDATE, NO RECULLS LES DADES I LES SOBREESCRIUS DIRECTAMENT, A CEGUES. 
 
-        /*
-        $consultaID = Usuari::find($id);
-        return View("admin.edit")-> with('prof', $consultaID);
-        */
+        
+        //$consultaID = Usuari::find($id);
+        //return View("admin.edit")-> with('prof', $consultaID);
+        
     }
 
     function store(Request $request){
@@ -53,7 +53,14 @@ class CentreController extends Controller
         $rolProfe="Professor";
         $consultaProfe = Usuari::where('rol', $rolProfe)->get();
 
-        return view("admin.index")-> with('llistaProf', $consultaProfe);
+        return view("admin.index")-> with('consultaProfe', $consultaProfe);
         
+    }
+
+    function delete($id){
+        $user = Usuari::findOrFail($id);
+        $user->delete();
+        return redirect()->route('admin.index');
+    
     }
 }

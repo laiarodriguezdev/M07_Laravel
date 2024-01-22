@@ -13,6 +13,9 @@
     <!--
             TAULA QUE CONTROLA LA PROPIA VISTA. 
     -->
+    @if ($consultaAlumne->isEmpty())
+    <p>No hi ha cap alumne en la BBDD.</p>
+    @else
     <table>
         <thead>
             <tr>
@@ -32,17 +35,19 @@
                     <td>{{ $user->actiu == 1 ? 'Sí' : 'No' }}</td>
                     <td>
                         <a href="/prof/edit/{{ $user->id }}">Editar</a>
-                        <a href="/prof/delete/{{ $user->id }}">Borrar</a>
+                        <form action="{{ url('prof/'. $user['id'])}}" method="post">
+                            @method("delete")
+                            @csrf
+                            <input type="submit" value="delete">
+                        </form>
                     </td>
                 </tr>   
             @endforeach 
         </tbody>
     </table>
-
-
-    
+    @endif
     <!--BUTTONS -->
-    <button><a href="{{ route('prof.create')}}">Crear un nou alumne</a></button><br>
+    <br><button><a href="{{ route('prof.create')}}">Crear un nou alumne</a></button><br>
     <a href="{{ route('signin')}}">Log out</a>
 </body>
 </html>

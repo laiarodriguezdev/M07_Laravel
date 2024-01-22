@@ -111,12 +111,10 @@ Route::controller(CentreController::class)->group(function(){
     
     Route::get('/admin/create', 'create') ->name('admin.create');
     Route::post('/admin/create', 'createProf') ->name('admin.create');
-    /*
-    Route::post('/admin', 'store') ->name('admin.store');
-
-    Route::put('/admin/{id}', 'update') ->name('admin.update');
     
-    Route::delete('/admin/{id}', 'destroy') -> name('admin.destroy');*/
+    Route::post('/admin', 'store') ->name('admin.store');
+    Route::put('/admin/{id}', 'update') ->name('admin.update');
+    Route::delete('/admin/{id}', 'delete') -> name('admin.delete');
 });
 
 Route::controller(TeacherController::class)->group(function(){
@@ -125,12 +123,9 @@ Route::controller(TeacherController::class)->group(function(){
 
     Route::get('/prof/create', 'create') ->name('prof.create');
     Route::post('/prof/create', 'createAlum') ->name('prof.create');
-
-    /*
-    Route::post('/prof', 'store') ->name('prof.store');
-
-    Route::put('/prof/{id}', 'update') ->name('prof.update');
     
-    Route::delete('/prof/{id}', 'destroy') -> name('prof.destroy');*/
+    Route::post('/prof', 'store') ->name('prof.store');
+    Route::put('/prof/{id}', 'update') ->name('prof.update');
+    Route::delete('/prof/{id}', 'delete') -> name('prof.delete');
 
 });

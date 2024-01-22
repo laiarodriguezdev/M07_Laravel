@@ -10,6 +10,9 @@
 
     <h2>Benvingut administrador</h2>
 
+    @if ($consultaProfe->isEmpty())
+    <p>No hi ha cap professor en la BBDD.</p>
+    @else
     <table>
         <thead>
             <tr>
@@ -29,15 +32,19 @@
                     <td>{{ $user->actiu == 1 ? 'Sí' : 'No' }}</td>
                     <td>
                         <a href="/admin/edit/{{ $user->id }}">Editar</a>
-                        <a href="/admin/delete/{{ $user->id }}">Borrar</a>
+                        <form action="{{ url('admin/'. $user['id'])}}" method="post">
+                            @method("delete")
+                            @csrf
+                            <input type="submit" value="delete">
+                        </form>
                     </td>
                 </tr>   
             @endforeach 
         </tbody>
     </table>
-    <a href="/prof/create">Crear nuevo usuario profesor</a>
+    @endif
     <!--BUTTONS -->
-    <button><a href="{{ route('admin.create')}}">Crear un nou professor</a></button><br>
+    <br><button><a href="{{ route('admin.create')}}">Crear un nou professor</a></button><br>
     <a href="{{ route('signin')}}">Log out</a>
 </body>
 </html>

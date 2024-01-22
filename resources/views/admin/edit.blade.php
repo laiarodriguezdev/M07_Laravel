@@ -23,5 +23,8 @@
 
         <button type="submit">Guardar Cambios</button>
     </form>
+
+    <br>
+    <a href="{{ route('admin.index')}}">Torna a home</a>
 </body>
 </html>

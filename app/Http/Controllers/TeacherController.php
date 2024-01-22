@@ -10,7 +10,7 @@ class TeacherController extends Controller
     function index(){
 
         $consultaAlumne = Usuari::where('rol', "Alumne")->get();
-        return View("professor.index");
+        return View("professor.index")->with('consultaAlumne', $consultaAlumne);
     }
 
     function create(){
@@ -47,7 +47,14 @@ class TeacherController extends Controller
         $rolAlumne="Alumne";
         $consultaAlumne = Usuari::where('rol', $rolAlumne)->get();
 
-        return view("professor.index")-> with('llistaProf', $consultaAlumne);
+        return view("prof.index")-> with('llistaProf', $consultaAlumne);
         
+    }
+
+    function delete($id){
+        $user = Usuari::findOrFail($id);
+        $user->delete();
+        return redirect()->route('prof.index');
+    
     }
 }
