@@ -50,13 +50,15 @@ class LoginController extends Controller
         //--------------P02 + P03 + P04-----------------
         
         if($consulta->rol == "Professor"){
-            return view('professor.index')->with('email',$email);
+            $consultaAlumne = Usuari::where('rol', "Alumne")->get();
+            return view('professor.index')->with(['email' => $email, 'consultaAlumne' => $consultaAlumne]);
         }
         else if($consulta->rol == "Alumne"){
             return view('user.alumne')->with('email',$email);
         }
         else if($consulta->rol == "Centre"){
-            return view('admin.index')->with('email',$email);
+            $consultaProfe = Usuari::where('rol', "Professor")->get();
+            return view('admin.index')->with(['email' => $email, 'consultaProfe' => $consultaProfe]);
         }
         else{
             return view('user.error');

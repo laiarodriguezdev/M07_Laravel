@@ -13,7 +13,31 @@
     <!--
             TAULA QUE CONTROLA LA PROPIA VISTA. 
     -->
-
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Cognom</th>
+                <th>Email</th>
+                <th>Actiu</th>
+                <th>Accions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($consultaAlumne as $user)
+                <tr>
+                    <td>{{ $user->nom }}</td>
+                    <td>{{ $user->cognoms }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->actiu == 1 ? 'Sí' : 'No' }}</td>
+                    <td>
+                        <a href="/prof/edit/{{ $user->id }}">Editar</a>
+                        <a href="/prof/delete/{{ $user->id }}">Borrar</a>
+                    </td>
+                </tr>   
+            @endforeach 
+        </tbody>
+    </table>
 
 
     
