@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDITA UN PROFESSOR</title>
+    <title>MODIFICA UN PROFESSOR</title>
 </head>
 <body>
     <!--
@@ -12,51 +12,38 @@
         I LLAVORS, EN EL BOTÓ DE GUARDAR, ES EL UPDATE -PUT- 
     -->
 
-    <h1>Editar Profesor</h1>
+    <h1>MODIFICA UN PROFESSOR</h1>
 
-    <form action="{{ url('/admin/edit') }}" method="put">
-        <!--ID-->
-        <label for="id"> Numero</label>
-        <input type="number" name="id">
+    <form action="{{route('admin.update',[$consultaProfe->id])}}" method="post">
+        @method('put')
+        @csrf
+        <label for = "id"> Indica el teu id </label>
+        <input type="text" name="id" value="{{$consultaProfe->id}}">
         <br>
-        <!--NOM-->
-        <label for="nom"> Nom</label>
-        <input type="text" name="nom">
+        <label for = "nom"> Indica el teu nom </label>
+        <input type="text" name="nom" value="{{$consultaProfe->nom}}">
         <br>
-        <!--COGNOM-->
-        <label for="cognoms"> Cognoms </label>
-        <input type="text" name="cognoms">
+        <label for = "cognoms"> Indica el teu cognom </label>
+        <input type="text" name="cognoms" value="{{$consultaProfe->cognoms}}">
         <br>
-        <!--PASSWORD-->
-        <label for="password"> Contrassenya </label>
-        <input type="text" name="password">
+        <label for = "email"> Indica el teu email </label>
+        <input type="email" name="email" value="{{$consultaProfe->email}}">
         <br>
-        <!--EMAIL-->
-        <label for="email"> Email </label>
-        <input type="text" name="email">
+        <label for = "password"> Indica el teu password </label>
+        <input type="password" name="password" value="{{$consultaProfe->password}}">        
         <br>
-        <!--ROL-->
         <label for="rol"> Rol </label>
         <select name="rol">
-            <option value="Alumne">Alumne</option>
+            <option value="Professor">Professor</option>
         </select>
         <br>
-        <!--ACTIU-->
         <label for="actiu"> Actiu? </label>
-        <input type="checkbox" name="actiu">
-        <br>
+        <input type="checkbox" name="actiu" value="{{ $consultaProfe->id ==1 ? 'checked' : ''}}">
+        <br>            
         <input type="submit" value="Enviar">   
-    </form>
-
-    <!--
-    <form action="{{ route('admin.update', $professor->id) }}" method="post">
-        @csrf
-        @method('put')
-
-
-        <button type="submit">Guardar Cambios</button>
-    </form>
-    -->
+    </form> 
+    <!--INICIAR SESSIÓ-->
+    <br>
     <br>
     <a href="{{ route('admin.index')}}">Torna a home</a>
 </body>

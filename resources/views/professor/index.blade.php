@@ -6,10 +6,7 @@
     <title>Professor</title>
 </head>
 <body>
-    <h1>Pàgina del centre</h1>
-
-    <h2>Benvingut professor</h2>
-
+    <h1>Benvingut professor</h1>
     <!--
             TAULA QUE CONTROLA LA PROPIA VISTA. 
     -->

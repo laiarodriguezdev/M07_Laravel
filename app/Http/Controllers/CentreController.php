@@ -33,16 +33,28 @@ class CentreController extends Controller
     }
 
     function edit($id){
-        //DIFERNCIA ENTRE EDIT I UPDATE:
-
-        //----------- A EDIT POTS VEURE QUINS VALORS TENIA L'USUARI A LA BBDD,
-        //----------- A UPDATE, NO RECULLS LES DADES I LES SOBREESCRIUS DIRECTAMENT, A CEGUES. 
-
-        
-        //$consultaID = Usuari::find($id);
-        //return View("admin.edit")-> with('prof', $consultaID);
+        $consultaProfe = Usuari::find($id);
+        return View("admin.edit")-> with('consultaProfe', $consultaProfe);
         
     }
+
+    function update($id){
+        $usuari = Usuari::find($id);
+
+        $usuari->id = request('id');
+        $usuari->nom = request('nom');
+        $usuari->cognoms = request('cognoms');
+        $usuari->password = request('password');
+        $usuari->email = request('email');
+        $usuari->rol = request('rol');
+        $usuari->actiu = request()->has('actiu');
+
+        $usuari->save();
+
+        $consultaProfe = Usuari::where('rol', 'Professor')->get();
+        return view('admin.index')->with('consultaProfe',$consultaProfe);
+    }
+
 
     function store(Request $request){
         $usuari = new Usuari();
@@ -50,9 +62,7 @@ class CentreController extends Controller
 
         $usuari -> save();
 
-        $rolProfe="Professor";
-        $consultaProfe = Usuari::where('rol', $rolProfe)->get();
-
+        $consultaProfe = Usuari::where('rol', 'Professor')->get();
         return view("admin.index")-> with('consultaProfe', $consultaProfe);
         
     }

@@ -34,8 +34,25 @@ class TeacherController extends Controller
     }
 
     function edit($id){
-        $consultaID = Usuari::find($id);
-        return View("professor.edit")-> with('prof', $consultaID);
+        $consultaAlumne = Usuari::find($id);
+        return View("professor.edit")-> with('consultaAlumne', $consultaAlumne);
+    }
+
+    function update($id){
+        $usuari = Usuari::find($id);
+
+        $usuari->id = request('id');
+        $usuari->nom = request('nom');
+        $usuari->cognoms = request('cognoms');
+        $usuari->password = request('password');
+        $usuari->email = request('email');
+        $usuari->rol = request('rol');
+        $usuari->actiu = request()->has('actiu');
+
+        $usuari->save();
+
+        $consultaAlumne = Usuari::where('rol', 'Alumne')->get();
+        return view('professor.index')->with('consultaAlumne',$consultaAlumne);
     }
 
     function store(Request $request){
@@ -44,17 +61,16 @@ class TeacherController extends Controller
 
         $usuari -> save();
 
-        $rolAlumne="Alumne";
-        $consultaAlumne = Usuari::where('rol', $rolAlumne)->get();
+        $consultaAlumne = Usuari::where('rol', 'Alumne')->get();
 
-        return view("prof.index")-> with('llistaProf', $consultaAlumne);
+        return view("professor.index")-> with('llistaProf', $consultaAlumne);
         
     }
 
     function delete($id){
         $user = Usuari::findOrFail($id);
         $user->delete();
-        return redirect()->route('prof.index');
+        return redirect()->route('professor.index');
     
     }
 }
