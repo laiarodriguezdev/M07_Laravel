@@ -70,7 +70,7 @@ class TeacherController extends Controller
     function delete($id){
         $user = Usuari::findOrFail($id);
         $user->delete();
-        return redirect()->route('professor.index');
+        return redirect()->route('prof.index');
     
     }
 }
